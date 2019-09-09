@@ -1,0 +1,10 @@
+两整数之和(位运算）
+ int main()
+ {
+	 int a = 1;
+	 int b = 2;
+	 int c = (a^b) + ((a&b) << 1);
+	 printf("%d\n", c);
+	 system("pause");
+	 return 0;
+ }
