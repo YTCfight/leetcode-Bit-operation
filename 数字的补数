@@ -1,0 +1,34 @@
+//数字的补数
+ int ComplementNumber(int input)
+ {
+	 //先记录最前面为1的那位。
+	 int count = 0;
+	 for (int i = 0; i < 32; i++)
+	 {
+		 if (((input >> i) & 1) == 1)
+		 {
+			 count = i;
+		 }
+	 }
+	 int j = 0;
+	 int sum = 0;
+   //为0的那位乘以该位的权重
+	 while (j<= count)
+	 {
+		 if (((input >> j) & 1) == 0)
+		 {
+			 sum += pow(2, j);
+		 }
+		 j++;
+	 }
+	 return sum;
+ }
+ int main()
+ {
+	 int input = 0;
+	 scanf("%d", &input);
+	 int ret = ComplementNumber(input);
+	 printf("%d\n", ret);
+	 system("pause");
+	 return 0;
+ }
