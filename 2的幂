@@ -1,0 +1,32 @@
+//2的幂
+ int JudgeTwoSq(int input)
+ {
+	 for (int i = 1; i <= input; i = (i << 1))
+	 {
+		 if (i == input)
+		 {
+			 return 1;
+		 }
+	 }
+	 return 0;
+ }
+ int JudgeTwoSq1(int input)
+ {
+	 return (input&(input - 1)) == 0;
+ }
+ int main()
+ {
+	 int input = 0;
+	 scanf("%d", &input);
+	 int ret = JudgeTwoSq1(input);
+	 if (ret == 1)
+	 {
+		 printf("是\n");
+	 }
+	 else
+	 {
+		 printf("不是\n");
+	 }
+	 system("pause");
+	 return 0;
+ }
