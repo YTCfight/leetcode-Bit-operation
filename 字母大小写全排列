@@ -1,0 +1,39 @@
+//字母大小写全排列
+ //方法一：ascii转化
+ char *  ArratyOfWord(char *str, int len)
+ {
+	 int i = 0;
+	 for (i = 0; i < len-1; i++)
+	 {
+		 if (str[i] >= 65 && str[i] <= 90)
+		 {
+			 str[i] += 32;
+		 }
+		 else if (str[i] >= 97 && str[i] <= 122)
+		 {
+			 str[i] -= 32;
+		 }
+	 }
+	 return str;
+ }
+ //方法二：异或法（a-b=c，则三个数中随便两个数字异或得到第三个数字）。
+ char*  ArratyOfWord1(char* str, int len)
+ {
+	 for (int i = 0; i<len - 1; i++)
+	 {
+		 if (str[i] >= 65 && str[i] <= 122)
+		 {
+			 str[i] ^= 32;
+		 }
+	 }
+	 return str;
+ }
+ int main()
+ {
+	 char str[] = "a1b2";
+	 int len = sizeof(str) / sizeof(str[0]);
+	 char * ret = ArratyOfWord1(str, len);
+	 printf("%s\n", ret);
+	 system("pause");
+	 return 0;
+ }
