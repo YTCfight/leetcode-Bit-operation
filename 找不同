@@ -1,0 +1,65 @@
+//找不同
+ //方法一：异或法
+ char SeekDiffrent(char* str1, char* str2)
+ {
+	 int result = 0;
+	 while (*str1 != '\0')
+	 {
+		 result ^= *str1;
+		 str1++;
+	 }
+	 while (*str2 != '\0')
+	 {
+		 result ^= *str2;
+		 str2++;
+	 }
+	 return (char)result;
+ }
+ //方法二：ascii值法
+ char SeekDiffrent1(char* str1, char* str2)
+ {
+	 int sum = 0;
+	 while (*str2 != '\0')
+	 {
+		 sum += *str2;
+		 str2++;
+	 }
+	 int tmp = 0;
+	 while (*str1 != '\0')
+	 {
+		 tmp += *str1;
+		 str1++;
+	 }
+	 return (char)(sum - tmp);
+ }
+ //方法三：哈希表法
+ char SeekDiffrent2(char* str1, char* str2)
+ {
+	 char hash[256] = { 0 };
+	 while (*str1 != '\0')
+	 {
+		 hash[*str1]++;
+		 str1++;
+	 }
+	 while (*str2 != '\0')
+	 {
+		 hash[*str2]++;
+		 str2++;
+	 }
+	 for (int i = 0; i <= 256; i++)
+	 {
+		 if (hash[i] == 1)
+		 {
+			 return (char)i;
+		 }
+	 }
+ }
+ int main()
+ {
+	 char* str1 = "abcd";
+	 char* str2 = "abcde";
+	 char ret = SeekDiffrent2(str1, str2);
+	 printf("%c\n", ret);
+	 system("pause");
+	 return 0;
+ }
